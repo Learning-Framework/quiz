@@ -13,14 +13,9 @@ func main() {
 	fname := *flag.String("path", "problems.csv", "path to a csv file with quiz questions")
 	flag.Parse()
 
-	fl, err := os.Open(fname)
+	records, err := openCsv(fname)
 	if err != nil {
-		log.Fatalln("Open quiz csv file: ", err)
-	}
-	csvr := csv.NewReader(fl)
-	records, err := csvr.ReadAll()
-	if err != nil {
-		log.Fatalln("error reading csv : ", err)
+		log.Fatalln("Openning csv file: ", err)
 	}
 
 	var correct, incorrect int
@@ -39,4 +34,15 @@ func main() {
 
 	fmt.Printf("Correct answers: %d\t incorrect answers: %d\n", correct, incorrect)
 
+}
+
+func openCsv(fname string) ([][]string, error) {
+	var records [][]string
+	fl, err := os.Open(fname)
+	if err != nil {
+		log.Fatalln("Open quiz csv file: ", err)
+	}
+	csvr := csv.NewReader(fl)
+	records, err = csvr.ReadAll()
+	return records, err
 }
