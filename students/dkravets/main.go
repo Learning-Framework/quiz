@@ -46,3 +46,5 @@ func openCsv(fname string) ([][]string, error) {
 	records, err = csvr.ReadAll()
 	return records, err
 }
+
+//TODO:part 2 of this quiz assignment has to be implemented
