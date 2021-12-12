@@ -32,7 +32,7 @@ func main() {
 		}
 	}
 
-	fmt.Printf("Correct answers: %d\t incorrect answers: %d\n", correct, incorrect)
+	fmt.Printf("Questions total: %d\t Correct answers: %d\n", correct+incorrect, correct)
 
 }
 
