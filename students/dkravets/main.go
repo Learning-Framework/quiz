@@ -47,4 +47,5 @@ func openCsv(fname string) ([][]string, error) {
 	return records, err
 }
 
-// TODO:part 2 of this quiz assignment has to be implemented
+// TODO: part 2 of this quiz assignment has to be implemented
+// TODO: Need to integrate goroutines to track time for each quiz question
